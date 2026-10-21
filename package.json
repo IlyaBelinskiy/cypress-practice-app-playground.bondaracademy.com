@@ -1,0 +1,17 @@
+{
+  "name": "cypress_playground",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:smoke-firefox": "npx cypress run --spec 'cypress/e2e/firstTest.cy.js' --browser firefox",
+    "cypress:smoke-chrome": "npx cypress run --spec 'cypress/e2e/firstTest.cy.js' --browser chrome",
+    "cypress:smoke-all:sequentially": "npm run cypress:smoke-firefox && npm run cypress:smoke-chrome",
+    "cypress:smoke-all:linux_or_mac_parallel": "npm run cypress:smoke-firefox & npm run cypress:smoke-chrome",
+    "cypress:smoke-all:windows_sequentially": "npx npm-run-all cypress:smoke-firefox cypress:smoke-chrome",
+    "cypress:smoke-all:windows_parallel": "npx npm-run-all --parallel cypress:smoke-firefox cypress:smoke-chrome"
+  },
+  "devDependencies": {
+    "cypress": "^15.3.0",
+    "cypress-iframe": "^1.0.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
